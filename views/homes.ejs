@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        <%= city %>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/styles/main.css" />
+
+</head>
+
+<body>
+
+    <div class="body__container">
+        <div class="body__separator--0">
+            <div class="menu__hidden">
+                <div class="flexbox--column menu__hidden--margin">
+                    <label for="WHERE">WHERE</label>
+                    <input type="text" placeholder="AnyWhere">
+                </div>
+                <div class="flexbox--row menu__hidden--margin">
+                    <div class="flexbox--column ">
+                        <label for="CHECK IN">CHECK IN</label>
+                        <input type="text" placeholder="dd/mm/yyyy">
+                    </div>
+                    <div class="flexbox--column">
+                        <label for="CHECK OUT">CHECK OUT</label>
+                        <input type="text" placeholder="dd/mm/yyyy">
+                    </div>
+                </div>
+                <div class="flexbox--column menu__hidden--margin">
+                    <label for="GUESTS">GUESTS</label>
+                    <input type="GUESTS" placeholder="1 guest">
+                </div>
+                <div class="button__red">
+                    <button type="search">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="body__separator--1">
+            <div>
+                <h3>Explore Airbnb</h3>
+            </div>
+
+            <div class="explore_box ">
+                <div class="box__text-image flexbox--row ">
+                    <div class="image__container">
+                        <div class="explore__image--1"></div>
+                    </div>
+                    <div class="text__container">
+                        <div class="explore__text">Homes</div>
+                    </div>
+                </div>
+                <div class="box__text-image flexbox--row">
+                    <div class="image__container">
+                        <div class="explore__image--2"></div>
+                    </div>
+                    <div class="text__container">
+                        <div class="explore__text">Experiences</div>
+                    </div>
+                </div>
+                <div class="box__text-image flexbox--row margin__right">
+                    <div class="image__container">
+                        <div class="explore__image--3"></div>
+                    </div>
+                    <div class="text__container">
+                        <div class="explore__text">Restaurants</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% include partials/homeCard %>
+
+        <div class="body__separator--4">
+            <div>
+                <h3>Homes for your kind of trip</h3>
+                <h4>Find a top-rated home with amenities you need</h4>
+            </div>
+            <div class="flexbox--row">
+                <div class="flexbox--column toprated__container right">
+                    <div class="toprated__image">
+                        <div class="toprated_image1"></div>
+                    </div>
+                    <div class="toprated_text">
+                        <div class="line5">2,000+ HOMES</div>
+                        <div class="line6">Find a home that families love. Stretch out and enjoy a space of your own.</div>
+                    </div>
+                </div>
+                <div class="flexbox--column toprated__container left">
+                    <div class="toprated__image">
+                        <div class="toprated_image2"></div>
+                    </div>
+                    <div class="toprated_text">
+                        <div class="line5">2,000+ HOMES</div>
+                        <div class="line6">Book a top-rated home that offers reservation flexibility and work-trip
+                            essentials.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

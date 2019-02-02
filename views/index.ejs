@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/styles/main.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>  
+        crossorigin="anonymous"></script>
 
 </head>
 
@@ -35,32 +35,32 @@
                     <div class="reservation__title">
                         <h1>Book unique homes and experiences.</h1>
                     </div>
-
-                    <div class="flexbox--column">
-                        <label for="WHERE">WHERE</label>
-                        <input type="text" placeholder="AnyWhere">
-                    </div>
-
-                    <div class="flexbox--row ">
-                        <div class="flexbox--column ">
-                            <label for="CHECK IN">CHECK IN</label>
-                            <input type="text" placeholder="dd/mm/yyyy">
+                    <form action="´">
+                        <div class="flexbox--column">
+                            <label for="WHERE">WHERE</label>
+                            <input id="where" type="text" placeholder="AnyWhere">
                         </div>
-                        <div class="flexbox--column ">
-                            <label for="CHECK OUT">CHECK OUT</label>
-                            <input type="text" placeholder="dd/mm/yyyy">
+
+                        <div class="flexbox--row ">
+                            <div class="flexbox--column ">
+                                <label for="CHECK IN">CHECK IN</label>
+                                <input type="text" placeholder="dd/mm/yyyy">
+                            </div>
+                            <div class="flexbox--column ">
+                                <label for="CHECK OUT">CHECK OUT</label>
+                                <input type="text" placeholder="dd/mm/yyyy">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="flexbox--column">
-                        <label for="GUESTS">GUESTS</label>
-                        <input type="GUESTS" placeholder="1 guest">
-                    </div>
+                        <div class="flexbox--column">
+                            <label for="GUESTS">GUESTS</label>
+                            <input type="GUESTS" placeholder="1 guest">
+                        </div>
 
-                    <div class="button__red">
-                        <button type="search">Search</button>
-                    </div>
-
+                        <div class="button__red" >
+                            <button id='mainSearch' type="search">Search</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -299,10 +299,11 @@
         </div>
     </div>
     <script>
-        rome
-        let homeImages = document.getElementsByClassName("homes__image--1");
-        homeImages[0].style.backgroundImage =
-            "url('https://pmcvariety.files.wordpress.com/2018/07/bradybunchhouse_sc11.jpg?w=1000&h=563&crop=1')";
+         document.getElementById('mainSearch').addEventListener('click', function (e) {
+             e.preventDefault();
+            let where = document.getElementById('where').value;
+            window.location.href = `/s/${where}/all`
+         })
     </script>
 </body>
 
