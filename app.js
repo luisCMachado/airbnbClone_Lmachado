@@ -81,8 +81,8 @@ app.get('/s/:city/all', function (req, res) {
 })
 
 app.get('/s/:city/homes', function (req, res) {
-    res.send(`Welcome to ${req.params.city} homes`)
-
+ //   res.send(`Welcome to ${req.params.city} homes`)
+    res.render('homes')
 })
 
 app.get('/s/:city/experiences', function (req, res) {
