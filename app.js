@@ -72,11 +72,12 @@ app.get('/', function (req, res) {
 app.get('/s/:city/all', function (req, res) {
     const city = req.params.city.toUpperCase();
     if (city === 'ROME') {
-        res.render('search', {
+       return res.render('search', {
             city: city,
             homes: rome
         })
     }
+   res.send('We found no results for that query')
 })
 
 app.get('/s/:city/homes', function (req, res) {

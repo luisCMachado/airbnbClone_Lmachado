@@ -90,9 +90,10 @@
                 </div>
             </div>
         </div>
-        <div class="body__separator--3">
+        <% include partials/homes %>
+        <!-- <div class="body__separator--3">
             <div>
-                <h3>Homes around <%= city %></h3>
+                <h3>Homes around 1<%= city %></h3>
             </div>
             <div class="flexbox--row margin">
                 <div class="container__homes  flexbox--column right one ">
@@ -226,7 +227,7 @@
             </div>
             <div class="show__all"> Show all (2000+) &#9002;</div>
 
-        </div>
+        </div> -->
         <div class="body__separator--4">
             <div>
                 <h3>Homes for your kind of trip</h3>
@@ -258,13 +259,13 @@
 
 </body>
 <script>
-    let homeImages = document.getElementsByClassName("homes__image--1");
-    let urls = `<% for(let i=0; i < homes.length; i++) { %> <%= homes[i].img %> <%} %>`;
-    let urlsArr = urls.split('  ')
+    // let homeImages = document.getElementsByClassName("homes__image--1");
+    // let urls = `<% for(let i=0; i < homes.length; i++) { %> <%= homes[i].img %> <%} %>`;
+    // let urlsArr = urls.split('  ')
 
-    for (let i = 0; i < homeImages.length; i++) {
-        homeImages[i].style.backgroundImage = `url(${urlsArr[i]})`;
-    }
+    // for (let i = 0; i < homeImages.length; i++) {
+    //     homeImages[i].style.backgroundImage = `url(${urlsArr[i]})`;
+    // }
 </script>
 
 </html>
