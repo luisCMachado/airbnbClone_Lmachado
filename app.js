@@ -4,7 +4,7 @@ let app = express()
 const port = 3000
 let rome = [{
         title: 'Colosseum Dream Casa, Rome city center.',
-        price: '€69 por noite',
+        price: 69,
         img: 'https://a0.muscache.com/im/pictures/59275754/dda6841d_original.jpg',
         stars: 5,
         description: `Cozy, small, clean, beautiful! 
@@ -16,7 +16,7 @@ let rome = [{
     },
     {
         title: 'Colosseum Loft',
-        price: '€55 por noite',
+        price: 55,
         img: 'https://a0.muscache.com/4ea/air/v2/pictures/ae327b04-5ed4-4017-84ba-4744ce5dc43e.jpg',
         stars: 4,
         description: `Luminoso silenzioso bilocale totalmente a disposizione degli ospiti, 
@@ -35,7 +35,7 @@ let rome = [{
     },
     {
         title: 'Elegant apartment, central & cheap',
-        price: '€42 por noite',
+        price: 42,
         img: 'https://a0.muscache.com/im/pictures/21911253/839008d6_original.jpg',
         stars: 5,
         description: `PLEASE VIEW THESE OTHER MY LISTINGS
@@ -47,7 +47,7 @@ let rome = [{
     },
     {
         title: 'Pettinarihome 2 Campo dei Fiori',
-        price: '€89 por noite',
+        price: 89,
         img: 'https://a0.muscache.com/im/pictures/14143884/a9c58d2e_original.jpg',
         stars: 5,
         description: `This just under 600 sq ft apartment is located on the top, 4th floor of a small 17th century building, without elevator. The accommodation consists of one bedroom, one living room with sofa, kitchenette, fully equipped kitchen, bathroom and shower. The apartment is equipped with all modern conveniences, including satellite TV, internet, stereo, CD/DVD, independent heating, safe, washing machine, hairdryer, etc. This bright apartment is fitted with double-glazed windows, so it's very quiet. Breakfast is included in the price.`
@@ -69,6 +69,25 @@ app.get('/', function (req, res) {
     res.render('index')
 })
 
+app.get('/home/new', function (req, res) {
+    res.render('new_home')
+})
+
+app.post('/home', function (req, res) {
+    const title = req.body.title
+    const price = req.body.price;
+    const img = req.body.imgUrl;
+    const description = req.body.description;
+    rome.push({
+        title: title,
+        price: price, 
+        img: img, 
+        stars: 5, 
+        description: description
+    });
+    res.redirect('/s/rome/homes')
+})
+
 app.get('/s/:city/all', function (req, res) {
     const city = req.params.city.toUpperCase();
     if (city === 'ROME') {
@@ -81,8 +100,8 @@ app.get('/s/:city/all', function (req, res) {
 })
 
 app.get('/s/:city/homes', function (req, res) {
- //   res.send(`Welcome to ${req.params.city} homes`)
-    res.render('homes')
+    const city = req.params.city.toUpperCase();
+    res.render('homes', {city: city, homes: rome})
 })
 
 app.get('/s/:city/experiences', function (req, res) {
