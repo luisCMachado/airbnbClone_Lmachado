@@ -73,7 +73,10 @@ app.get('/', function (req, res) {
 })
 
 app.get('/home/new', function (req, res) {
-    res.render('new_home', {title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb'})
+    res.render('new_home', {
+        title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
+        navColor: 'black'
+    })
 })
 
 app.post('/home', function (req, res) {
@@ -83,10 +86,10 @@ app.post('/home', function (req, res) {
     const description = req.body.description;
     rome.push({
         title: title,
-        price: price, 
-        img: img, 
-        stars: 5, 
-        description: description
+        price: price,
+        img: img,
+        stars: 5,
+        description: description,
     });
     res.redirect('/s/rome/homes')
 })
@@ -94,18 +97,22 @@ app.post('/home', function (req, res) {
 app.get('/s/:city/all', function (req, res) {
     const city = req.params.city.toUpperCase();
     if (city === 'ROME') {
-       return res.render('search', {
+        return res.render('search', {
             title: city,
             homes: rome,
             navColor: 'black'
         })
     }
-   res.send('We found no results for that query')
+    res.send('We found no results for that query')
 })
 
 app.get('/s/:city/homes', function (req, res) {
     const city = req.params.city.toUpperCase();
-    res.render('homes', {title: city, homes: rome})
+    res.render('homes', {
+        title: city,
+        homes: rome,
+        navColor: 'black'
+    })
 })
 
 app.get('/s/:city/experiences', function (req, res) {
