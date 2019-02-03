@@ -1,45 +1,10 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-        <%= city %>
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="/styles/main.css" />
-
-</head>
-
+<% include partials/header %>
 <body>
-
+    <% include partials/navbar %>
     <div class="body__container">
-        <div class="body__separator--0">
-            <div class="menu__hidden">
-                <div class="flexbox--column menu__hidden--margin">
-                    <label for="WHERE">WHERE</label>
-                    <input type="text" placeholder="AnyWhere">
-                </div>
-                <div class="flexbox--row menu__hidden--margin">
-                    <div class="flexbox--column ">
-                        <label for="CHECK IN">CHECK IN</label>
-                        <input type="text" placeholder="dd/mm/yyyy">
-                    </div>
-                    <div class="flexbox--column">
-                        <label for="CHECK OUT">CHECK OUT</label>
-                        <input type="text" placeholder="dd/mm/yyyy">
-                    </div>
-                </div>
-                <div class="flexbox--column menu__hidden--margin">
-                    <label for="GUESTS">GUESTS</label>
-                    <input type="GUESTS" placeholder="1 guest">
-                </div>
-                <div class="button__red">
-                    <button type="search">Search</button>
-                </div>
-            </div>
-        </div>
+
         <div class="body__separator--1">
             <div>
                 <h3>Explore Airbnb</h3>
@@ -123,5 +88,5 @@
     </div>
 
 </body>
-
+<% include partials/footer %>
 </html>

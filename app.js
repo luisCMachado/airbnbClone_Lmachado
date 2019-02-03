@@ -66,11 +66,14 @@ app.use(bodyParser.json())
 app.listen(port, () => console.log(`Server started on port ${port}!`));
 
 app.get('/', function (req, res) {
-    res.render('index')
+    res.render('index', {
+        title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
+        navColor: 'white'
+    })
 })
 
 app.get('/home/new', function (req, res) {
-    res.render('new_home')
+    res.render('new_home', {title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb'})
 })
 
 app.post('/home', function (req, res) {
@@ -92,8 +95,9 @@ app.get('/s/:city/all', function (req, res) {
     const city = req.params.city.toUpperCase();
     if (city === 'ROME') {
        return res.render('search', {
-            city: city,
-            homes: rome
+            title: city,
+            homes: rome,
+            navColor: 'black'
         })
     }
    res.send('We found no results for that query')
@@ -101,7 +105,7 @@ app.get('/s/:city/all', function (req, res) {
 
 app.get('/s/:city/homes', function (req, res) {
     const city = req.params.city.toUpperCase();
-    res.render('homes', {city: city, homes: rome})
+    res.render('homes', {title: city, homes: rome})
 })
 
 app.get('/s/:city/experiences', function (req, res) {
