@@ -1,0 +1,33 @@
+<div class="body__separator--3">
+    <div>
+        <h3>Homes around
+            <%= title %>
+        </h3>
+    </div>
+    <div class="flexbox--row margin" >
+        <% for(let i=0; i < homes.length; i++) { %>
+        <div class="container__homes  flexbox--column right left">
+            <div class="homes__image__container">
+                <div class="homes__image--1" style="background-image: url('<%= homes[i].img %>')"></div>
+            </div>
+            <div class="homes__description__container">
+                <div class="homes__text">
+                    <div class="line1">ENTIRE COTTAGE ·
+                        <%= title %>
+                    </div>
+                    <div class="line2">
+                        <%= homes[i].title %>
+                    </div>
+                    <div class="line3">
+                        €<%= homes[i].price %> por noite · Free cancellation</div>
+                    <div class="line4">
+                        <% for(let j=0; j < homes[i].stars; j++) { %>
+                        &#9733;
+                        <%}%>
+                        <%= Math.floor((Math.random() * 500) + 1) %> · Superhost</div>
+                </div>
+            </div>
+        </div>
+        <%} %>
+    </div>
+</div>

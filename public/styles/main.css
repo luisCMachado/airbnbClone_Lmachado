@@ -1,0 +1,832 @@
+/**** SHARED ****/
+/*div{
+    outline: 1px solid red;
+}*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.43;
+    background-color: white;
+}
+h3{
+    font-size: 24px;
+    font-weight: 700;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: rgb(72, 72, 72);
+}
+h4{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px; 
+    margin-bottom: 15px;
+}
+.flexbox--row{
+    display: flex;
+    width: 100%;
+}
+.flexbox--column{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/**** MAIN HEADER ****/
+
+.header{  /************  width: 1440px; height: 750px; ***********/
+    width: 100vw;
+    min-height: 685px;
+    height: 100vh;
+    background-image: url("  https://a0.muscache.com/4ea/air/r:w3100-h2074-sfit,e:fjpg-c80/pictures/0ffd8594-f123-43f0-85bb-7ef88c6f0624.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.gradient {
+    width: 100%; 
+    height: 100%;
+    background-image:linear-gradient(to bottom,rgba(0,0,0,0.6), rgba(0,0,0,0.4) 10%,rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.1) 30%, transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 34px;
+    color: white;
+    height: 80px;
+    width: 82px;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+}
+
+.header__menu p{
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    font-family: sans-serif;
+    align-items: center;
+    display: inline-flex;
+    font-size: 14px;
+}
+
+.header__menu > div > div{
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+
+.header__topbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.header__menu{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 6px;
+}
+
+.header__menu p:hover{
+    border-bottom: 2px solid white;
+    margin-top: 2px;
+}
+
+/**** MAIN HEADER -- RESERVATION ****/
+
+.reservation__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: auto;
+    width: 1080px;
+    max-height: 475px;
+    margin-top: 40px;
+}
+.reservation__box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 441px;
+    height: 475px;
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.2);
+    padding: 32px;
+    border-radius: 4px;
+    padding-bottom: 14px;
+
+}
+.reservation__title h1{
+    color: #484848;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    margin: 0;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    font-size: 31px;
+}
+input {
+    height: 46px;
+    padding: 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #484848;
+    background-color: transparent;
+}
+::-webkit-input-placeholder {
+    font-size: 17px;
+}
+label {
+    margin-bottom: 8px;
+    color: #484848;
+    font-weight: 800;
+    font-size: 12px;
+}
+
+.button__red {
+     text-align: end;
+     padding-top: 8px;
+}
+.button__red button{
+    padding: 12px;
+    padding-left: 22px;
+    padding-right: 22px;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #FF2F52;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+}
+
+/**** MAIN HEADER -- FOOTER ****/
+
+.header__text{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*----------          BODY          ----------*/
+
+.body__container {
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 1080px;
+    margin: auto;
+    font-size: 21px;
+    line-height: 30px ;
+    letter-spacing: normal;
+    color: rgb(72, 72, 72) ;
+    font-weight: 800;
+}
+
+.body__separator--0{
+    margin-right: 24px;
+}
+
+/*----------          EXPLORE          ----------*/
+
+.body__separator--1 {
+    margin-top: 24px;
+    margin-bottom: 32px;
+    height: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.explore_box {
+    display: inline-flex;
+}
+
+.box__text-image{
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-right: 15px;
+    margin-top: 16px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+}
+.image__container {
+    width: 96px;
+    height: 72px;
+}
+.text__container{
+    min-width: 148px;
+ /*   min-height: 72px; */
+}
+
+.explore__image--1{
+    height: 100%;
+    background-image: url(https://a0.muscache.com/im/pictures/8b7519ec-2c82-4c09-8233-fd4d2715bbf9.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+.explore__image--2{
+    height: 100%;
+    background-image: url(https://a0.muscache.com/im/pictures/cb8b3101-d419-4c17-8e2f-4989b39b98c3.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+.explore__image--3{
+    height: 100%;
+    background-image: url(https://a0.muscache.com/im/pictures/da2d8e97-90b7-409f-94ac-5ab0327c289b.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+.text__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 16px 10px;
+    font-size: 17px;
+    line-height: 21px;
+    font-weight: 800; 
+  
+}
+
+/*----------          AIRBNB PLUS          ----------*/
+    
+.body__separator--2 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: 371px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.airbnbplus__container {
+    width: 1032px;
+    height: 300px;
+}
+
+.airbnbplus__image {
+    display: flex;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+    background-image: url("/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.airbnbplus__icon {
+    margin-top:56px; 
+}
+
+.body__button--white {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.body__button--white *{
+    padding: 12px;
+    padding-left: 22px;
+    padding-right: 22px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(72, 72, 72);
+    font-weight: 700;
+    font-size: 12px;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    letter-spacing: 1px;
+    border-color: transparent;
+}
+
+/*----------          HOMES AROUND THE WORLD          ----------*/
+
+.body__separator--3 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+}
+.container__homes {
+    height: 299px;
+    width: 100%;
+}
+
+.homes__image--1 {
+    max-width: 100%;
+    height: 164px;
+    background-image: url(https://a0.muscache.com/im/pictures/16186201/7575dc92_original.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.homes__image--2 {
+    max-width: 100%;
+    height: 164px;
+    background-image: url(https://a0.muscache.com/im/pictures/45655208/1ae646f5_original.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.homes__image--3 {
+    max-width: 100%;
+    height: 164px;
+    background-image: url(https://a0.muscache.com/im/pictures/75266944/7a903102_original.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.homes__image--4 {
+    max-width: 100%;
+    height: 164px;
+    background-image: url(https://a0.muscache.com/im/pictures/6174600/15fb85b3_original.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.homes__image--5 {
+    max-width: 100%;
+    height: 164px;
+    background-image: url(https://a0.muscache.com/im/pictures/ba3f7bc4-31b8-435f-b5f9-5bc320901fe3.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.homes__image--6 {
+    max-width: 100%;
+    height: 164px;
+    background-image: url(https://a0.muscache.com/im/pictures/18813125/896b30c2_original.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.homes__image--7 {
+    max-width: 100%;
+    height: 164px;
+    background-image: url(https://a0.muscache.com/im/pictures/22903552/b41736ff_original.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.homes__image--8 {
+    max-width: 100%;
+    height: 164px;
+    background-image: url(https://a0.muscache.com/im/pictures/11341171/d5ca49b5_original.jpg?aki_policy=large);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.container__homes {
+    height: 299px;
+    width: 100%;
+}
+
+.line1 {
+    color: rgb(113, 78, 51);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: normal;
+    margin-top: 4px;
+}
+
+.line2{
+    color: rgb(72, 72, 72);
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    letter-spacing: normal;
+    margin-top: -4px;
+
+}
+
+.line3{
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(72, 72, 72);
+    font-weight: normal;
+    letter-spacing: normal;
+    margin-top: 4px;
+}
+
+.line4{
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: normal;
+    color: rgb(72, 72, 72);
+    margin-top: 4px;
+}
+
+.show__all {
+    color: rgb(0, 132, 137);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 22px;
+    margin-right: 6px; 
+}
+
+/*----------          HOMES AROUND THE WORLD          ----------*/
+
+.body__separator--4 {
+ /*   margin: 0 auto; */
+    max-width: 1032px;
+    margin-bottom: 40px;
+}
+toprated__container{
+    width: 50%;
+    height: 395.5px;
+}
+
+/*.toprated__image{ width: 508px; height: 317.5px; }*/
+
+.toprated_image1{
+    max-width: 100%;
+    height: 317.5px;
+    background: url(https://a0.muscache.com/pictures/f759fb5d-0fd7-4f80-b1a2-23a1915298f4.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+}
+
+.toprated_image2{
+    max-width: 100%;
+    height: 317.5px;
+    background: url(https://a0.muscache.com/pictures/f8539f57-e950-4d82-a834-97bcf9239b1c.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+}
+
+.line5 {
+    color: rgb(128, 45, 14);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.line6{
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    box-sizing: border-box;
+    color: rgb(72, 72, 72);
+    font-weight: normal;
+    line-height: 18px;
+    white-space: normal;
+}
+
+/**++++ CHANGES *****/
+.reservation__title--hidden{
+    display: none;
+}
+.menu__hidden{  
+    display: none;
+}
+.margin__right{
+    margin-right: 0;
+}
+.menu__hidden--margin{
+    margin-bottom: 16px;
+}
+.margin {
+    margin: 12px 0px 12px 0px;
+}
+.top{
+    margin-top: 0;
+}
+
+.left {
+    margin-left: 6px;
+}
+
+.right{
+    margin-right: 6px; 
+}
+
+@media (max-width: 1128px) {        /*****************************************     1º breakPoint     *****************************************/
+ 
+    .menu__hidden{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .body__container {
+        width: 100%;
+        padding-right: 0px;
+        margin: 0;
+    }    
+    .margin {
+        align-self: flex-start    
+    }
+
+    /****** Changes*****/
+
+    .reservation__title--hidden{
+        display: flex;
+        font-size: 31px;
+    }
+
+    .reservation__title--hidden h1{
+        font-size: 31px;
+        color: white;
+        font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+        margin: 0;
+        line-height: 1.15;
+        margin-bottom: 8px;
+        font-size: 31px;
+    }
+    
+    .header__text1{
+        display: none;
+        
+    }
+
+    .header__text{
+        color: white;
+        display: flex;
+        align-self: flex-start;
+        text-align: left;
+        padding-bottom: 16px; 
+    }    
+
+    /*****************************************     HEADER START     *****************************************/
+
+    .gradient {
+        height: 232px;
+        background-image:linear-gradient(to top,rgba(0,0,0,0.6), rgba(0,0,0,0.4) 30%,rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 90%, transparent);
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        
+    }
+
+    .header{
+        min-height: 232px;
+        height: 232px;
+        width: 100%;
+        margin-bottom: 22px;
+    
+    }
+
+    .reservation__container{
+        width: 100%;
+        display: none;
+    }
+
+    .reservation__box {
+        width: 100%;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .reservation__title{
+          margin-top: 45px;
+    }
+  
+    .reservation__title h1 {
+        color: white;
+    }
+    .button__red button {
+        width: 100%;
+
+    }
+    .header__menu{
+        display: none;
+    }
+
+    .airbnbplus__container{
+        width: 100%;
+    }
+
+    /*****************************************     BODY START     *****************************************/
+
+    .body__separator--1{
+        width: 100%;
+        align-items: initial;
+        padding-right: 24px;
+    }
+    .text__container {
+        font-size: 14px;
+        min-width: 120px; 
+    }
+
+    .body__separator--2{
+        width: 100%;
+        padding-right: 24px;
+    }
+
+    .eight {
+        display: none;
+    }
+    .four {
+        display: none;
+    }
+
+    /*****************************************     TOP - RATED HOMES    *****************************************/
+
+    .toprated__container{
+        height: 100%;
+    }
+    .body__separator--4 {
+        height: 100%;
+        min-width: auto;
+        padding-right: 24px;
+    }
+    .toprated_image1{
+        height: 28.148vw;
+    }
+    .toprated_image2{
+        height: 28.148vw;
+    }
+
+    /*****************************************    HOMES AROUND THE WORLD     *****************************************/
+
+    .container__homes {
+        height: 100%;
+    }
+    .body__separator--3{
+        width: 100%;
+        padding-right: 24px;
+    }
+    .homes__image--1 {
+        height: 19.7vw;
+    }
+    .homes__image--2 {
+        height: 19.7vw;
+    }    
+    .homes__image--3 {
+        height: 19.7vw;
+    }      
+    .homes__image--5 {
+        height: 19.7vw;
+    }    
+    .homes__image--6 {
+        height: 19.7vw;
+    }    
+    .homes__image--7 {
+        height: 19.7vw;
+    }   
+
+}
+
+
+@media (max-width: 969px) {       /*****************************************     2º breakPoint     *****************************************/      
+
+    /*****************************************    HOMES AROUND THE WORLD     *****************************************/
+    
+        .container__homes {
+            height: 100%;
+        }
+        .body__separator--3{
+            width: 100%;
+            overflow: scroll;
+            min-width: auto;
+            padding-right: 24px;
+        }
+        .homes__image--1 {
+            height: 29vw;
+            min-width: 33%;
+        }
+        .homes__image--2 {
+            height: 29vw;
+        }     
+    
+        .homes__image--5 {
+            height: 29vw;
+        }    
+        .homes__image--6 {
+            height: 29vw;
+        }    
+        .two{
+            margin-right: 0;
+        }
+        .six{
+            margin-right: 0;
+        }
+        .three {
+            display: none;
+        }
+        .seven{
+            display: none;
+        }
+        .line3 {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 41.735vw;
+            
+        }
+        .line2 {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 41.735vw;
+    
+        }
+        .line1 {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 41.735vw;
+    
+        }
+    
+}
+    
+
+@media (max-width: 744px) {        /*****************************************     3º breakPoint     *****************************************/
+
+
+    .explore_box{
+        margin-bottom: 2px;
+    }
+    .image__container {
+        width: 138px;
+        height: 77px;
+    }
+    .text__container{
+        min-width: 100%; 
+    }
+
+    .box__text-image {
+        flex-direction: column;
+        height: 140px;
+    }
+    .body__separator--1{
+        align-items: self-start; 
+        height: 100%;
+        overflow: scroll;
+    }
+    .body__separator--4 {
+        max-width: 100%;;
+        overflow: scroll;
+    }
+    .toprated__container{
+        min-width: 93.62%;
+        width: 695px;
+    }
+    .toprated_image1{
+        height: 48.585vw;
+    }
+    .toprated_image2{
+        height: 48.585vw;
+    }
+
+}
+
+@media (max-width: 583px) {     /*****************************************     4º breakPoint     *****************************************/
+
+    .header{
+        height: 252px;
+        width: 100%;
+    }
+    .gradient {
+        height: 252px;
+        background-image:linear-gradient(to top,rgba(0,0,0,0.6), rgba(0,0,0,0.4) 30%,rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 90%, transparent);
+    }
+    .reservation__title{
+        margin-top: 45px;
+    }
+
+    /*****************************************    HOMES AROUND THE WORLD     *****************************************/
+
+    .line4 {
+        font-size: 11px;
+    }
+    .header__text{
+
+        padding-bottom: 8px; 
+    }    
+
+}
