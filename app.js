@@ -1,20 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 const Location = require(__dirname + '/models/location')
+const Home = require(__dirname + '/models/home')
 
 let app = express();
 const port = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/airbnbV6');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/airbnbV7');
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
 mongoose.connection.once('open', function () {
     console.log('connected')
     //     const rome = new Location({
-    //         name: 'Rome',
+    //         name: 'ROME',
     //         houses: [{
     //         title: 'Colosseum Dream Casa, Rome city center.',
     //         price: 69,
@@ -64,7 +64,7 @@ mongoose.connection.once('open', function () {
     //         img: 'https://a0.muscache.com/im/pictures/14143884/a9c58d2e_original.jpg',
     //         stars: 5,
     //         description: `This just under 600 sq ft apartment is located on the top, 4th floor of a small 17th century building, without elevator. The accommodation consists of one bedroom, one living room with sofa, kitchenette, fully equipped kitchen, bathroom and shower. The apartment is equipped with all modern conveniences, including satellite TV, internet, stereo, CD/DVD, independent heating, safe, washing machine, hairdryer, etc. This bright apartment is fitted with double-glazed windows, so it's very quiet. Breakfast is included in the price.`
-    //     },
+    //     }
     // ]
     //     })
     //     rome.save()
@@ -88,51 +88,74 @@ app.get('/', function (req, res) {
     })
 })
 
-app.get('/home/new', function (req, res) {
+app.get('/db', (req, res) => {
+    Location.find().populate('houses').exec((err, locations) => {
+        res.send(locations)
+    })
+})
+
+app.get('/:location/homes/new', function (req, res) {
     res.render('new_home', {
         title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
+        location: req.params.location.toUpperCase(),
         navColor: 'black'
     })
 })
 
-app.post('/home', function (req, res) {
+app.post('/:location/homes', function (req, res) {
     const title = req.body.title
     const price = req.body.price;
     const img = req.body.imgUrl;
     const description = req.body.description;
-    Location.find().then(result => {
-        result[0].houses.push({
-            title: title,
-            price: price,
-            img: img,
-            stars: 5,
-            description: description
-        })
-        result[0].save();
+    Location.findOne({
+        name: req.params.location.toUpperCase()
+    }).then(result => {
+        if (result) {
+            const newHome = new Home({
+                title: title,
+                price: price,
+                img: img,
+                stars: 5,
+                description: description
+            });
+            result.houses.push(newHome._id);
+            newHome.save();
+            result.save();
+            res.redirect(`/s/${req.params.location.toUpperCase()}/homes`)
+        } else
+            res.send('No result for that query')
     })
-    res.redirect('/s/rome/homes')
 })
 
-app.get('/s/:city/all', function (req, res) {
-    const city = req.params.city.toUpperCase();
-    if (city === 'ROME') {
-        Location.find().then(result => {
-            res.render('search', {
-                title: city,
-                homes: result[0].houses,
-                navColor: 'black'
-            })
+
+
+app.get('/s/:location/all', function (req, res) {
+    const city = req.params.location.toUpperCase();
+    Location.findOne({
+        name: req.params.location.toUpperCase()
+    }).populate("houses").exec(function (err, location) {
+        if(!location){
+            return res.send('location not found')
+        }
+        res.render('search', {
+            title: city,
+            homes: location.houses,
+            navColor: 'black'
         })
-    } else
-        res.send('We found no results for that query')
+    })
 })
 
-app.get('/s/:city/homes', function (req, res) {
-    const city = req.params.city.toUpperCase();
-    Location.find({name: city}).then(result => {
+app.get('/s/:location/homes', function (req, res) {
+    const city = req.params.location.toUpperCase();
+    Location.findOne({
+        name: req.params.location.toUpperCase()
+    }).populate("houses").exec(function (err, location) {
+        if(!location){
+            return res.send('location not found')
+        }
         res.render('homes', {
             title: city,
-            homes: result[0].houses,
+            homes: location.houses,
             navColor: 'black'
         })
     })
