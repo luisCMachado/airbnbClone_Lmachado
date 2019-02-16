@@ -94,6 +94,18 @@ app.get('/db', (req, res) => {
     })
 })
 
+app.get('/rooms/:id', (req, res) => {
+    const id = req.params.id
+    Home.findById(id).exec((err, home) => {
+        res.render('home', {
+            title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
+            navColor: 'black',
+            home: home
+        })
+    })
+
+})
+
 app.get('/:location/homes/new', function (req, res) {
     res.render('new_home', {
         title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
@@ -134,7 +146,7 @@ app.get('/s/:location/all', function (req, res) {
     Location.findOne({
         name: req.params.location.toUpperCase()
     }).populate("houses").exec(function (err, location) {
-        if(!location){
+        if (!location) {
             return res.send('location not found')
         }
         res.render('search', {
@@ -150,7 +162,7 @@ app.get('/s/:location/homes', function (req, res) {
     Location.findOne({
         name: req.params.location.toUpperCase()
     }).populate("houses").exec(function (err, location) {
-        if(!location){
+        if (!location) {
             return res.send('location not found')
         }
         res.render('homes', {
