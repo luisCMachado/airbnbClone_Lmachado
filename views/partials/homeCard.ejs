@@ -8,8 +8,8 @@
         <% for(let i=0; i < homes.length; i++) { %>
         <div class="container__homes  flexbox--column right left">
             <div class="homes__image__container">
-                <div class="homes__image--1" style="background-image: url('<%= homes[i].img %>')"></div>
-            </div>
+               <a href="/rooms/<%=homes[i]._id%>"><div class="homes__image--1" style="background-image: url('<%= homes[i].img %>')"></div>
+            </a> </div>
             <div class="homes__description__container">
                 <div class="homes__text">
                     <div class="line1">ENTIRE COTTAGE ·

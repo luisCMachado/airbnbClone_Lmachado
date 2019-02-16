@@ -1,0 +1,58 @@
+.normal__font{
+    font-weight: 400;
+}
+
+.home__photo--container{  /************  width: 1440px; height: 750px; ***********/
+    width: 100vw;
+    max-height: 368px;
+    height: 100vh;
+    background-image: url("https://a0.muscache.com/im/pictures/11341171/d5ca49b5_original.jpg?aki_policy=xx_large");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.body__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.appartment__information--container{
+    margin-top: 38px;
+    width: 60%;
+    font-size: 14px;
+}
+
+.reservation__menu--container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 38%;
+    background-color: white;
+    margin-top: 38px;
+    border-radius: 4px;
+    padding-bottom: 14px;
+    
+}
+.test{
+    padding: 25px;
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.button__red button {
+    width: 100%;
+
+}
+
+.house__info {
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+span{
+    margin-right: 30px;
+    line-height: 50%;
+}

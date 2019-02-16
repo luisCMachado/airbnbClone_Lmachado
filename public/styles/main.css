@@ -1,7 +1,7 @@
 /**** SHARED ****/
-/*div{
+/* div{
     outline: 1px solid red;
-}*/
+} */
 *{
     box-sizing: border-box;
     margin: 0;
@@ -143,9 +143,7 @@ input {
     color: #484848;
     background-color: transparent;
 }
-::-webkit-input-placeholder {
-    font-size: 17px;
-}
+
 label {
     margin-bottom: 8px;
     color: #484848;
