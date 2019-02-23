@@ -20,7 +20,7 @@ module.exports.searchLocationAll = async (req, res) => {
     }
 }
 
-module.exports.searchLocationHomes = (req, res) => {
+module.exports.searchLocationHomes = async (req, res) => {
     const city = req.params.location.toUpperCase();
     try {
         const location = await db.getFromDB('Location', {
