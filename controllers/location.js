@@ -1,38 +1,41 @@
-const Location = require('../models/location')
+const db = require('../utilities/db/db')
 
-const searchLocationAll = (req, res) => {
+module.exports.searchLocationAll = async (req, res) => {
     const city = req.params.location.toUpperCase();
-    Location.findOne({
-        name: req.params.location.toUpperCase()
-    }).populate("houses").exec(function (err, location) {
+    try {
+        const location = await db.getFromDB('Location', {
+            name: city
+        })
         if (!location) {
             return res.send('location not found')
         }
+        await location.populate('houses').execPopulate();
         res.render('search', {
             title: city,
             homes: location.houses,
             navColor: 'black'
         })
-    })
+    } catch (err) {
+        console.log(err)
+    }
 }
 
-const searchLocationHomes = (req, res) => {
+module.exports.searchLocationHomes = (req, res) => {
     const city = req.params.location.toUpperCase();
-    Location.findOne({
-        name: req.params.location.toUpperCase()
-    }).populate("houses").exec(function (err, location) {
+    try {
+        const location = await db.getFromDB('Location', {
+            name: city
+        })
         if (!location) {
             return res.send('location not found')
         }
-        res.render('homes', {
+        await location.populate('houses').execPopulate();
+        res.render('search', {
             title: city,
             homes: location.houses,
             navColor: 'black'
         })
-    })
-}
-
-module.exports = {
-    searchLocationAll: searchLocationAll,
-    searchLocationHomes: searchLocationHomes
+    } catch (err) {
+        console.log(err)
+    }
 }
