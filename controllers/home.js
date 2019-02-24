@@ -1,3 +1,5 @@
+const Location = require('../models/location')
+const Homes = require('../models/home')
 const db = require('../utilities/db/db')
 
 module.exports.renderHome = async (req, res) => {
@@ -6,7 +8,7 @@ module.exports.renderHome = async (req, res) => {
         const home = await db.getFromDB('Location', {
             _id: id
         })
-        res.render('home', {
+        await res.render('home', {
             title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
             navColor: 'black',
             home: home
@@ -25,9 +27,11 @@ module.exports.insertHome = (req, res) => {
 }
 
 module.exports.createHome = async (req, res) => {
-    const title = req.body.title
+    const title = req.body.title;
+    const beds = req.body.beds;
     const price = req.body.price;
     const img = req.body.imgUrl;
+    const stars = req.body.stars;
     const description = req.body.description;
     try {
         const location = await db.getFromDB('Location', {
@@ -37,14 +41,15 @@ module.exports.createHome = async (req, res) => {
         if (location) {
             const newHome = await db.postToDB('Home', {
                 title: title,
+                beds: beds,
                 price: price,
                 img: img,
-                stars: 5,
+                stars: stars,
                 description: description
             });
-
+            
             location.houses.push(newHome._id);
-
+            newHome.save()
             location.save();
 
             res.redirect(`/s/${req.params.location.toUpperCase()}/homes`)
