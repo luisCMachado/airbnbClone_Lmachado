@@ -38,7 +38,7 @@ h4{
 /**** MAIN HEADER ****/
 
 .header{  /************  width: 1440px; height: 750px; ***********/
-    width: 100vw;
+    width: 100%;
     min-height: 685px;
     height: 100vh;
     background-image: url("  https://a0.muscache.com/4ea/air/r:w3100-h2074-sfit,e:fjpg-c80/pictures/0ffd8594-f123-43f0-85bb-7ef88c6f0624.jpg");
@@ -213,12 +213,12 @@ label {
 }
 
 .explore_box {
-    display: inline-flex;
+    display: flex;
 }
 
 .box__text-image{
     width: 100%;
-    height: 100%;
+  /* height: 100%; */
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     margin-right: 15px;
@@ -271,7 +271,7 @@ label {
 .body__separator--2 {
     margin-top: 40px;
     margin-bottom: 40px;
-    height: 371px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -410,6 +410,9 @@ label {
 }
 
 .line1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     color: rgb(113, 78, 51);
     font-size: 12px;
     font-weight: 700;
@@ -418,6 +421,8 @@ label {
 }
 
 .line2{
+    text-overflow: ellipsis;
+    overflow: hidden;
     color: rgb(72, 72, 72);
     font-size: 16px;
     line-height: 22px;
@@ -428,6 +433,8 @@ label {
 }
 
 .line3{
+    text-overflow: ellipsis;
+    overflow: hidden;
     font-size: 14px;
     line-height: 18px;
     color: rgb(72, 72, 72);
@@ -437,6 +444,8 @@ label {
 }
 
 .line4{
+    text-overflow: ellipsis;
+    overflow: hidden;
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
@@ -757,7 +766,20 @@ toprated__container{
             white-space: nowrap;
             overflow: hidden;
             width: 41.735vw;
+        }
+        .body__separator--1::-webkit-scrollbar { /* WebKit */
+            width: 0;
+            height: 0;
+        }
     
+        .body__separator--3::-webkit-scrollbar { /* WebKit */
+            width: 0;
+            height: 0;
+        }
+    
+        .body__separator--4::-webkit-scrollbar { /* WebKit */
+            width: 0;
+            height: 0;
         }
     
 }
@@ -786,10 +808,14 @@ toprated__container{
         height: 100%;
         overflow: scroll;
     }
+
+
     .body__separator--4 {
         max-width: 100%;;
         overflow: scroll;
     }
+
+
     .toprated__container{
         min-width: 93.62%;
         width: 695px;
