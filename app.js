@@ -8,7 +8,7 @@ const homeRoutes = require ('./routes/home')
 const locationRoutes = require ('./routes/location')
 const generalPagesRoutes = require ('./routes/generalPages')
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/airbnbV7',  { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/airbnbV11',  { useNewUrlParser: true });
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
