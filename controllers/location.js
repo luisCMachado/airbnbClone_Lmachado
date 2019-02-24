@@ -1,4 +1,7 @@
+const Location = require('../models/location')
+const Homes = require('../models/home')
 const db = require('../utilities/db/db')
+
 
 module.exports.searchLocationAll = async (req, res) => {
     const city = req.params.location.toUpperCase();
@@ -20,6 +23,7 @@ module.exports.searchLocationAll = async (req, res) => {
     }
 }
 
+
 module.exports.searchLocationHomes = async (req, res) => {
     const city = req.params.location.toUpperCase();
     try {
@@ -30,7 +34,7 @@ module.exports.searchLocationHomes = async (req, res) => {
             return res.send('location not found')
         }
         await location.populate('houses').execPopulate();
-        res.render('search', {
+        res.render('homes', {
             title: city,
             homes: location.houses,
             navColor: 'black'
