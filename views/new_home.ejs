@@ -1,24 +1,27 @@
-<!DOCTYPE html>
-<html>
 <% include partials/header %>
-
+<% include partials/navbar %>
 <body>
-    <form action="/<%= location %>/homes" method="POST">
-        <p>Title<br>
-            <input type="text" name="title" value=""></p>
-        <p>Beds<br>
-            <input type="text" name="beds" value=""></p>
-        <p>Price<br>
-            <input type="text" name="price" value=""></p>
-        <p>Img url<br>
-            <input type="text" name="imgUrl" value=""></p>
-        <p>Stars<br>
-            <input type="text" name="stars" value=""></p>
-        <p>Description<br>
-            <input type="text" name="description" value=""></p>
-        <input type="submit" value="Submit">
-    </form>
+    <div class="home__form--container">
+        <div class="home__form--box ">
+            <form action="/<%= location %>/homes" method="POST">
+                <h3>ADD NEW HOME</h3><br>
+                <p>Title<br>
+                    <input type="text" name="title" value=""></p>
+                <p>Beds<br>
+                    <input type="text" name="beds" value=""></p>
+                <p>Price<br>
+                    <input type="text" name="price" value=""></p>
+                <p>Img url<br>
+                    <input type="text" name="imgUrl" value=""></p>
+                <p>Stars<br>
+                    <input type="text" name="stars" value=""></p>
+                <p>Description<br>
+                    <input type="text" name="description" value=""></p>
+                <div class="button__red">
+                    <button type="submit" value="Submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 <% include partials/footer %>
-
-</html>

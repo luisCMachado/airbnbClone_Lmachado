@@ -13,21 +13,18 @@
         <a class="color">Help</a>
         <% if(user){ %>
         <a class="color" href="/logout">Log out</a>
-        <a href="/profile"><img src="https://www.asalesguy.com/wp-content/uploads/2016/09/Egg-on-Your-Face.jpg"
-                class="rounded-circle rounded mx-auto d-block" style="width: 40px; height: 40px"></a>
+        <a href="/profile"><img src="https://www.asalesguy.com/wp-content/uploads/2016/09/Egg-on-Your-Face.jpg" class="rounded-circle rounded mx-auto d-block"
+                style="width: 40px; height: 40px"></a>
         <%  } else {%>
         <a data-toggle="modal" data-target="#signUp-modal" class="color" id="signUp">Sign up</a>
         <a data-toggle="modal" data-target="#logIn-modal" class="color" id="logIn">Log in</a>
         <% }%>
     </div>
 </div>
-<script src="/js/navbar.js">
-</script>
 <script>
     const color = document.getElementsByClassName('color');
     const icon = document.getElementById('icon');
-    if ('<%= navColor %>' === 'black') icon.style.color = '#fd5c63';
-    for (let i = 0; i < color.length; i++) {
-        color[i].style.color = '<%= navColor %>';
-    }
+    const navColor = '<%= navColor %>'
 </script>
+<% include footer %>
+</body>
