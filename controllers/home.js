@@ -9,7 +9,6 @@ module.exports.renderHome = async (req, res) => {
             _id: id
         })
         await home.populate('host').execPopulate();
-
         await res.render('home', {
             title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
             navColor: 'black',
@@ -18,6 +17,43 @@ module.exports.renderHome = async (req, res) => {
     } catch (err) {
         console.log(err)
     }
+}
+
+module.exports.editHome = async (req, res) => {
+    const id = req.params.id
+    try {
+        const home = await db.getFromDB('Home', {
+            _id: id
+        })
+        await home.populate('host').execPopulate();
+        await res.render('edit_home', {
+            title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
+            navColor: 'black',
+            home: home,
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+module.exports.updateHome = (req, res) => {
+    Homes.findByIdAndUpdate(req.params.id, {
+        title: req.body.title,
+        beds: parseInt(req.body.beds),
+        price: parseInt(req.body.price),
+        img: req.body.img,
+        stars: parseInt(req.body.stars),
+        description: req.body.description
+    }, function(err, model) {
+        if (err) {
+            return res.status(401).send(err);
+        }
+        res.status(200).send({
+            status: "ok",
+            redirect: `/rooms/${req.params.id}`,
+        });
+    })
+
 }
 
 module.exports.insertHome = (req, res) => {
@@ -50,11 +86,9 @@ module.exports.createHome = async (req, res) => {
                 description: description,
                 host: req.user._id
             });
-            
-            location.houses.push(newHome._id);
-            newHome.save()
-            location.save();
 
+            await location.houses.push(newHome._id);
+            await location.save();
             res.redirect(`/s/${req.params.location.toUpperCase()}/homes`)
         } else
             res.send('No result for that city')
