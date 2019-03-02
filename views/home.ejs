@@ -11,11 +11,23 @@
 
     <div class="body__container">
         <div class='appartment__information--container'>
-            <p>ENTIRE APARTMENT</p>
-            <h3><%= home.title %></h3>
-            <p>Rome</p> <br>
+            <div class="appartment__title">
+                <div class="appartment__title--text">
+                    <p>ENTIRE APARTMENT</p>
+                    <h3>
+                        <%= home.title %>
+                    </h3>
+                    <p>Rome</p> <br>
+                </div>
+                <div class="appartment__title--icon">
+                    <img src="https://www.asalesguy.com/wp-content/uploads/2016/09/Egg-on-Your-Face.jpg"
+                            class="rounded-circle rounded mx-auto d-block" style="width: 60px; height: 60px">
+                    <p><%= home.host[0].username %></p>      
+                </div>
+            </div>
             <div class="house__info">
-                <span>2 guests</span> <span><%= home.beds %> bedroom </span> <span>1 bed</span> <span>1 bath</span>
+                <span>2 guests</span> <span>
+                    <%= home.beds %> bedroom </span> <span>1 bed</span> <span>1 bath</span>
             </div>
             <div class="house__char">
                 <br>
@@ -26,7 +38,8 @@
                 <p class="normal__font">This is one of a few places in the area that has this feature.</p>
                 <br>
                 <p>Rita is a Superhost</p>
-                <p class="normal__font">Superhosts are experienced, highly rated hosts who are committed to providing great stays for
+                <p class="normal__font">Superhosts are experienced, highly rated hosts who are committed to providing
+                    great stays for
                     guests.</p>
             </div>
 
@@ -35,12 +48,13 @@
         <div class="reservation__menu--container">
             <div class="test">
                 <div class="flexbox--column menu__hidden--margin">
-                    <label for="WHERE"> <b style="font-size:28px">€<%= home.price %></b> per night</label>
+                    <label for="WHERE"> <b style="font-size:28px">€
+                            <%= home.price %></b> per night</label>
                     <label for="WHERE">
-                            <% for(let j=0; j < home.stars; j++) { %>
-                                &#9733;
-                                <%}%>
-                                <%= Math.floor((Math.random() * 500) + 1) %> 
+                        <% for(let j=0; j < home.stars; j++) { %>
+                        &#9733;
+                        <%}%>
+                        <%= Math.floor((Math.random() * 500) + 1) %>
                     </label>
                 </div>
                 <div class="flexbox--row menu__hidden--margin">
