@@ -7,7 +7,11 @@ const homeSchema = new Schema({
     price: Number,
     stars: Number,
     img: String,
-    description: String
+    description: String,
+    host: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }]
 });
 
 module.exports = mongoose.model('Home', homeSchema);

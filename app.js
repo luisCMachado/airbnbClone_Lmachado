@@ -30,11 +30,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/airbnbV12', {
 });
 
 mongoose.connection.once('open', function () {
-            const rome = new Location({
-            name: 'ROME',
-            houses: []
-            });
-        rome.save();
     console.log('connected')
 }).on('error', function (error) {
     console.log('Connection error:', error);
