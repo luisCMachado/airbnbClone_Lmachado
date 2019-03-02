@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <% include partials/header %>
 <link rel="stylesheet" type="text/css" media="screen" href="/styles/home.css" />
 
@@ -19,10 +17,13 @@
                     </h3>
                     <p>Rome</p> <br>
                 </div>
-                <div class="appartment__title--icon">
+                <div class="appartment__title--icon button__red">
                     <img src="https://www.asalesguy.com/wp-content/uploads/2016/09/Egg-on-Your-Face.jpg"
                             class="rounded-circle rounded mx-auto d-block" style="width: 60px; height: 60px">
-                    <p><%= home.host[0].username %></p>      
+                    <p><%= home.host[0].username %></p>
+                    <% if(user && user.username === home.host[0].username){ %>
+                        <a href="/rooms/<%=home._id%>/edit"><button >Edit</button></a> 
+                        <%  } %> 
                 </div>
             </div>
             <div class="house__info">
@@ -78,3 +79,4 @@
         </div>
     </div>
 </body>
+<% include partials/footer %>

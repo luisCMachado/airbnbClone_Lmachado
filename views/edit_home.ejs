@@ -1,0 +1,32 @@
+<% include partials/header %>
+<% include partials/navbar %>
+<body>
+    <div class="home__form--container">
+        <div class="home__form--box ">
+          <form id="editHome_form"> 
+                <h3>EDIT HOME</h3><br>
+                <p>Title<br>
+                    <input type="text" name="title" id="home_title" value="<%= home.title %>"></p>
+                <p>Beds<br>
+                    <input type="text" name="beds" id="home_beds" value="<%= home.beds %>"></p>
+                <p>Price<br>
+                    <input type="text" name="price" id="home_price" value="<%= home.price %>"></p>
+                <p>Img url<br>
+                    <input type="text" name="imgUrl" id="home_img" value="<%= home.img %>"></p>
+                <p>Stars<br>
+                    <input type="text" name="stars" id="home_stars" value="<%= home.stars %>"></p>
+                <p>Description<br>
+                    <input type="text" name="description" id="home_description" value="<%= home.description %>"></p>
+                <div class="button__red">
+                    <button type="submit" value="Submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+let home_id = "<%=home.id%>";
+</script>
+<script src="/js/edit_home.js"></script>
+<% include partials/footer %>
+</body>
