@@ -8,10 +8,12 @@ module.exports.renderHome = async (req, res) => {
         const home = await db.getFromDB('Home', {
             _id: id
         })
+        await home.populate('host').execPopulate();
+
         await res.render('home', {
             title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
             navColor: 'black',
-            home: home
+            home: home,
         })
     } catch (err) {
         console.log(err)
@@ -45,7 +47,8 @@ module.exports.createHome = async (req, res) => {
                 price: price,
                 img: img,
                 stars: stars,
-                description: description
+                description: description,
+                host: req.user._id
             });
             
             location.houses.push(newHome._id);

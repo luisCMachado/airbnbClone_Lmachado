@@ -25,7 +25,7 @@ app.use(cookieParser())
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/airbnbV11', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/airbnbV12', {
     useNewUrlParser: true
 });
 

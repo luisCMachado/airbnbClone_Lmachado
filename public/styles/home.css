@@ -56,3 +56,9 @@ span{
     margin-right: 30px;
     line-height: 50%;
 }
+
+.appartment__title{
+    display: flex;
+    justify-content: space-between;
+    
+}
