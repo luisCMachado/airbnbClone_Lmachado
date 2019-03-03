@@ -13,6 +13,7 @@ module.exports.renderHome = async (req, res) => {
             title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
             navColor: 'black',
             home: home,
+            csrfToken: req.csrfToken()
         })
     } catch (err) {
         console.log(err)
@@ -30,6 +31,7 @@ module.exports.editHome = async (req, res) => {
             title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
             navColor: 'black',
             home: home,
+            csrfToken: req.csrfToken()
         })
     } catch (err) {
         console.log(err)
@@ -38,13 +40,14 @@ module.exports.editHome = async (req, res) => {
 
 module.exports.updateHome = (req, res) => {
     Homes.findByIdAndUpdate(req.params.id, {
+        location: req.body.location,
         title: req.body.title,
         beds: parseInt(req.body.beds),
         price: parseInt(req.body.price),
         img: req.body.img,
         stars: parseInt(req.body.stars),
         description: req.body.description
-    }, function(err, model) {
+    }, function(err, data) {
         if (err) {
             return res.status(401).send(err);
         }
@@ -56,15 +59,34 @@ module.exports.updateHome = (req, res) => {
 
 }
 
+
+module.exports.deleteHome = (req, res) => {
+    console.log('oladel')
+    console.log(req.body)
+    Homes.findByIdAndDelete(req.params.id, (err, data) => {
+        db.Location.remove( {"_id": ObjectId("4d512b45cc9374271b02ec4f")});
+        if (err) {
+            return res.status(401).send(err);
+        }
+        res.status(200).send({
+            status: "ok",
+            redirect: `/s/${req.body.location}/homes`,
+        });
+    })
+
+}
+
 module.exports.insertHome = (req, res) => {
     res.render('new_home', {
         title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
         location: req.params.location.toUpperCase(),
-        navColor: 'black'
+        navColor: 'black',
+        csrfToken: req.csrfToken()
     })
 }
 
 module.exports.createHome = async (req, res) => {
+    const houseLocation = req.body.location;
     const title = req.body.title;
     const beds = req.body.beds;
     const price = req.body.price;
@@ -78,6 +100,7 @@ module.exports.createHome = async (req, res) => {
 
         if (location) {
             const newHome = await db.postToDB('Home', {
+                location: houseLocation,
                 title: title,
                 beds: beds,
                 price: price,

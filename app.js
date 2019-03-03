@@ -1,4 +1,6 @@
-const express = require('express'),
+const cookieParser = require('cookie-parser'),
+    csrf = require('csurf'),
+    express = require('express'),
     helmet = require('helmet'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
@@ -15,8 +17,6 @@ const express = require('express'),
     generalPagesRoutes = require('./routes/generalPages'),
     register = require('./routes/auth'),
     login = require('./routes/auth'),
-    csrf = require('csurf'),
-    cookieParser = require('cookie-parser'),
     profileRoutes = require('./routes/generalPages');
 
 

@@ -4,7 +4,10 @@
     <div class="home__form--container">
         <div class="home__form--box ">
           <form id="editHome_form"> 
+                <input type="hidden" name="_csrf" id="_csrf_home" value="{{csrfToken}}">
                 <h3>EDIT HOME</h3><br>
+                <p>Location<br>
+                    <input type="text" name="location" id="home_location" value="<%= home.location %>"></p>
                 <p>Title<br>
                     <input type="text" name="title" id="home_title" value="<%= home.title %>"></p>
                 <p>Beds<br>
