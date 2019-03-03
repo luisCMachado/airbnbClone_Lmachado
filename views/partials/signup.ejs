@@ -11,7 +11,7 @@
             <form id="signup_form">
 
                 <div class="modal-body">
-
+                        <input type="hidden" name="_csrf" id="_csrf_signUp" value="{{csrfToken}}">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input autocomplete= "current-username" type="email" class="form-control" id="signup_username" aria-describedby="emailHelp" placeholder="Enter email">

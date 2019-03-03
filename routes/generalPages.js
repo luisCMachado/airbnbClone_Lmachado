@@ -1,7 +1,11 @@
-const express = require('express'),
+const csrf = require('csurf'),
+    express = require('express'),
     router = express.Router(),
     generalPages_controller = require('../controllers/generalPages');
 
-router.get('/', generalPages_controller.renderHomepage);
+var csrfProtection = csrf({
+    cookie: true
+})
+router.get('/', csrfProtection, generalPages_controller.renderHomepage);
 
 module.exports = router;
