@@ -12,6 +12,7 @@ window.onload = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
+                    '_csrf': $('#_csrf_logIn').val(),
                     'username': $('#login_username').val(),
                     'password': $('#login_password').val()
                 })
@@ -38,6 +39,7 @@ window.onload = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
+                    '_csrf': $('#_csrf_signUp').val(),
                     'username': $('#signup_username').val(),
                     'password': $('#signup_password').val()
                 })

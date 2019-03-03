@@ -7,6 +7,7 @@ document.getElementById('editHome_form').onsubmit = (event) => {
             },
             body: JSON.stringify({
                 '_id': home_id,
+                'location': $('#home_location').val(),
                 'title': $('#home_title').val(),
                 'beds': $('#home_beds').val(),
                 'price': $('#home_price').val(),

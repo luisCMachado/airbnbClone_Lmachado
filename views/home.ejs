@@ -17,13 +17,16 @@
                     </h3>
                     <p>Rome</p> <br>
                 </div>
-                <div class="appartment__title--icon button__red">
-                    <img src="https://www.asalesguy.com/wp-content/uploads/2016/09/Egg-on-Your-Face.jpg"
-                            class="rounded-circle rounded mx-auto d-block" style="width: 60px; height: 60px">
-                    <p><%= home.host[0].username %></p>
+                <div class="appartment__title--icon">
+                    <img src="https://www.asalesguy.com/wp-content/uploads/2016/09/Egg-on-Your-Face.jpg" class="rounded-circle rounded mx-auto d-block"
+                        style="width: 60px; height: 60px">
+                    <p>
+                        <%= home.host[0].username %>
+                    </p>
                     <% if(user && user.username === home.host[0].username){ %>
-                        <a href="/rooms/<%=home._id%>/edit"><button >Edit</button></a> 
-                        <%  } %> 
+                    <a href="/rooms/<%=home._id%>/edit"><button class="btn btn-danger btn-sm ">Edit</button></a>
+                    <button class="btn btn-danger btn-sm " id="btn__delete"> Delete</button>
+                    <%  } %>
                 </div>
             </div>
             <div class="house__info">
@@ -72,7 +75,7 @@
                     <label for="GUESTS">Guests</label>
                     <input type="GUESTS" placeholder="1 guest">
                 </div>
-                <div class="button__red">
+                <div class="button__red btn-lg">
                     <button type="search">Request to book</button>
                 </div>
             </div>
@@ -80,3 +83,30 @@
     </div>
 </body>
 <% include partials/footer %>
+
+
+<script>
+    let home_id = "<%=home.id%>";
+    let home_location = "<%=home.location%>"
+    console.log(home_location)
+
+    document.getElementById("btn__delete").addEventListener("click", function () {
+        console.log('ola')
+        fetch(`/rooms/${home_id}`, {
+                method: 'delete',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    '_id': home_id,
+                    'location': home_location
+                })
+            })
+            .then(function (res) {
+                return res.json();
+            })
+            .then(function (data) {
+                if (data.redirect) window.location.href = data.redirect;
+            })
+    });
+</script>
