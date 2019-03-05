@@ -4,3 +4,10 @@ module.exports.renderHomepage = (req, res) => {
         navColor: 'white'
     })
 }
+
+module.exports.renderProfile = (req, res) => {
+    res.render('profile', {
+        title: 'Vacation Rentals, Homes, Experiences & Places - Airbnb',
+        navColor: 'black'
+    })
+}
