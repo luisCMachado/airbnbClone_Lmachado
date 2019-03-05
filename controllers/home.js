@@ -5,7 +5,7 @@ const db = require('../utilities/db/db')
 module.exports.renderHome = async (req, res) => {
     const id = req.params.id
     try {
-        const home = await db.getFromDB('Location', {
+        const home = await db.getFromDB('Home', {
             _id: id
         })
         await res.render('home', {
