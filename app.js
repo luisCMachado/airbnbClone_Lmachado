@@ -22,7 +22,7 @@ app.use(helmet())
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
-mongoose.connect(process.emodels || 'mongodb://localhost/airbnbV11', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/airbnbV11', {
     useNewUrlParser: true
 });
 
