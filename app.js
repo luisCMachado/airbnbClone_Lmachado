@@ -15,10 +15,13 @@ const express = require('express'),
     generalPagesRoutes = require('./routes/generalPages'),
     register = require('./routes/auth'),
     login = require('./routes/auth'),
+    csrf = require('csurf'),
+    cookieParser = require('cookie-parser'),
     profileRoutes = require('./routes/generalPages');
 
 
 app.use(helmet())
+app.use(cookieParser())
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
@@ -36,6 +39,12 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json())
+app.use(expressSession({
+    secret: "7GQyKbjLYIS/5F{abW2`3UW{T92az!Lu`sKYl2GO5;XI^$V{ryrG[03N5D0WbO8",
+
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -45,14 +54,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(expressSession({
-    secret: "7GQyKbjLYIS/5F{abW2`3UW{T92az!Lu`sKYl2GO5;XI^$V{ryrG[03N5D0WbO8",
-
-    resave: false,
-    saveUninitialized: false
-}));
 
 app.listen(port, () => console.log(`Server started on port ${port}!`));
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
+
 
 app.use(generalPagesRoutes)
 app.use(homeRoutes)

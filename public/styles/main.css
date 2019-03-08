@@ -75,9 +75,17 @@ h4{
     display: inline-flex;
 }
 
-.header__menu p{
-    padding-left: 18px;
-    padding-right: 18px;
+.header__menu{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    margin-right: 6px;
+}
+
+.header__menu a{
+    margin-left: 18px;
+    margin-right: 18px;
+    padding-bottom: 10px;
     font-size: 14px;
     font-weight: 500;
     color: white;
@@ -85,32 +93,24 @@ h4{
     align-items: center;
     display: inline-flex;
     font-size: 14px;
+    margin-bottom: 0px;
 }
 
-.header__menu > div > div{
-    margin-top: 18px;
-    margin-bottom: 18px;
+.header__menu a:hover{
+    border-bottom: 2px solid white;
+    margin-top: 2px;
 }
-
 
 .header__topbar{
     display: flex;
     justify-content: space-between;
     position: sticky;
-
 }
 
 
-.header__menu{
-    display: flex;
-    justify-content: space-between;
-    margin-right: 6px;
-}
 
-.header__menu p:hover{
-    border-bottom: 2px solid white;
-    margin-top: 2px;
-}
+
+
 
 /**** MAIN HEADER -- RESERVATION ****/
 

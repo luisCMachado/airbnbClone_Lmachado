@@ -19,9 +19,9 @@ document.getElementById('login_form').onsubmit = (event) => {
             }
              return res.json();
         })
-        .then(function (data) {
-            if (data.redirect) window.location.href = data.redirect;
-        })
+         .then(function (data) {
+             if (data.redirect) window.location.href = data.redirect;
+         })
 }
 
 document.getElementById('signup_form').onsubmit = (event) => {
@@ -46,6 +46,6 @@ document.getElementById('signup_form').onsubmit = (event) => {
                         <a href="#">Username allready registered</a>
                     </div>`);
             }
-            if (data.redirect) window.location.href = data.redirect;
-        })
+        if (data.redirect) window.location.href = data.redirect;
+    })
 }
